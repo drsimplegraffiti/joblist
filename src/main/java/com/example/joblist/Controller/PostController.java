@@ -41,7 +41,7 @@ public class PostController {
                     post.getTechs().length == 0 ||
                     post.getLocation() == null ||
                     post.getLocation().isEmpty()) {
-                response.sendError(400, "All fields are required");
+                response.sendError(400, "All fields are required.");
                 return null;
             }
 
