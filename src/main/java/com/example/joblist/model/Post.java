@@ -1,6 +1,7 @@
 package com.example.joblist.model;
 
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
@@ -9,6 +10,8 @@ import java.util.Date;
 
 @Document(collection = "posts") // This tells MongoDB to make a collection called "posts"
 public class Post {
+    @Id
+    private String id;
     private String profile;
     private String description;
     private int experience;
@@ -69,8 +72,14 @@ public class Post {
         return createdAt;
     }
 
-    public Date getUpdatedAt() {
-        return updatedAt;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+
+
+    public String getId() {
+        return id;
     }
 
 
@@ -78,6 +87,7 @@ public class Post {
     @Override
     public String toString() {
         return "Post{" +
+                "id='" + id + '\'' +
                 "profile='" + profile + '\'' +
                 ", description='" + description + '\'' +
                 ", experience=" + experience +
